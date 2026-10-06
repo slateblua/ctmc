@@ -1,7 +1,11 @@
 import model.FlipResult;
 import model.MoveResult;
 
-public class KineticMonteCarlo {
+public class Operations {
+    private Operations() {
+
+    }
+
     // Ideally should be in a configuration file
     public static final float ADD_RATE = 0.1f;
     public static final float REMOVE_RATE = 0.4f;
