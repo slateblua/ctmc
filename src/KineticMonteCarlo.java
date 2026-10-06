@@ -11,9 +11,11 @@ public class KineticMonteCarlo {
 
     }
 
+    // If we have 8 bits, 01100001
+    // To know whether the 5-th bit is "occupied"
+    // We bring it forward, and then & with 1
     int get(long s, int j) {
-        // Placeholder
-        return -1;
+        return (int) (s >> j) & 1;
     }
 
     FlipResult flip(long s, int j) {
