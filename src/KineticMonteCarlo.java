@@ -32,18 +32,58 @@ public class KineticMonteCarlo {
     }
 
     MoveResult movr(long s, int j) {
-        // Placeholder
+        // Is there anything to move?
+        boolean hasWalker = get(s, j) == 1;
+
+        // Figure out if j - 1 is available
+        boolean hasSpace = get(s, j - 1) == 0;
+
+        if (hasSpace && hasWalker) {
+            long newState = s;
+
+            // Remove walker from j
+            newState &= ~(1L << j);
+
+            // Add walker to j - 1
+            newState |= (1L << (j - 1));
+
+            return new MoveResult(
+                    true,
+                    newState
+            );
+        }
+
         return new MoveResult(
                 false,
-                0
+                s
         );
     }
 
     MoveResult movl(long s, int j) {
-        // Placeholder
+        // Is there anything to move?
+        boolean hasWalker = get(s, j) == 1;
+
+        // Figure out if j + 1 is available
+        boolean hasSpace = get(s, j + 1) == 0;
+
+        if (hasSpace && hasWalker) {
+            long newState = s;
+
+            // Remove walker from j
+            newState &= ~(1L << j);
+
+            // Add walker to j + 1
+            newState |= (1L << (j + 1));
+
+            return new MoveResult(
+                    true,
+                    newState
+            );
+        }
+
         return new MoveResult(
                 false,
-                0
+                s
         );
     }
 }
