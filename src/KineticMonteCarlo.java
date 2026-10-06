@@ -7,18 +7,14 @@ public class KineticMonteCarlo {
     public static final float REMOVE_RATE = 0.4f;
     public static final float MOVE_RATE = 0.3f;
 
-    public static void main(String[] args) {
-
-    }
-
     // If we have 8 bits, 01100001
     // To know whether the 5-th bit is "occupied"
     // We bring it forward, and then & with 1
-    int get(long s, int j) {
+    public static int get(long s, int j) {
         return (int) (s >> j) & 1;
     }
 
-    FlipResult flip(long s, int j) {
+    public static FlipResult flip(long s, int j) {
         long mask = 1L << j;
 
         boolean wasAdded = ((s >>> j) & 1L) == 0;
@@ -31,7 +27,7 @@ public class KineticMonteCarlo {
         );
     }
 
-    MoveResult movr(long s, int j) {
+    public static MoveResult movr(long s, int j) {
         // Is there anything to move?
         boolean hasWalker = get(s, j) == 1;
 
@@ -59,7 +55,7 @@ public class KineticMonteCarlo {
         );
     }
 
-    MoveResult movl(long s, int j) {
+    public static MoveResult movl(long s, int j) {
         // Is there anything to move?
         boolean hasWalker = get(s, j) == 1;
 
