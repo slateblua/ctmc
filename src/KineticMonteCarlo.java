@@ -19,10 +19,15 @@ public class KineticMonteCarlo {
     }
 
     FlipResult flip(long s, int j) {
-        // Placeholder
+        long mask = 1L << j;
+
+        boolean wasAdded = ((s >>> j) & 1L) == 0;
+
+        long newState = s ^ mask;
+
         return new FlipResult(
-                false,
-                0
+                wasAdded,
+                newState
         );
     }
 
