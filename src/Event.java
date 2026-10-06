@@ -1,5 +1,6 @@
 public enum Event {
     ADD,
-    MOVE,
+    MOVE_LEFT,
+    MOVE_RIGHT,
     REMOVE,
 }
